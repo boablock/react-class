@@ -9,7 +9,7 @@ import './Card.css'
 const Card = (props) => {
 
   // console.log(props);
-  const {title,description,img,btnText,btnClassName,Navbar} = props // is an object || Navbar NO SE IMPORTO, SE RECIBIO POR PROPS DESDE EL PAPA, EL PAPA LO IMPORTO (APP.JS)
+  const {title,description,img,btnText,btnClassName,Fiufiu} = props // is an object || Navbar NO SE IMPORTO, SE RECIBIO POR PROPS DESDE EL PAPA, EL PAPA LO IMPORTO (APP.JS)
   return (
 <div className="card" style={{width:'18rem'}}>
     <img src={img}  className="card-img-top" alt="..." />
@@ -21,7 +21,7 @@ const Card = (props) => {
     <p className="card-text">{description}</p>
     <Button btnText= {btnText} btnClassName = {btnClassName}/>
   </div>
-  <Navbar/> 
+  <Fiufiu/> 
 </div>
   )
 }
