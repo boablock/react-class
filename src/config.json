@@ -1,0 +1,29 @@
+{
+    "cards" : [
+        {
+            "id":1,
+            "'title'": "Hello, im a component",
+            "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+           "img":"https://ar.all.biz/img/ar/catalog/21448.jpeg",
+            "btnText":"Comprar",
+            "btnClassName": "btn btn-danger fs-1" 
+        },
+        {
+            "id":2,
+            "'title'": "Hello, im a component",
+            "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+           "img":"https://imagenes.elpais.com/resizer/JY_bIHi9LoJ-PF8YVIoVNF1OVGQ=/1960x1103/ep01.epimg.net/elpais/imagenes/2014/08/22/videos/1408718239_108049_1408721679_noticia_fotograma.jpg",
+            "btnText":"Ver mas"
+
+        },
+        {
+            "id":3,
+            "'title'": "Hello, im a component",
+            "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+           "img":"https://img-aws.ehowcdn.com/750x400p/cdn-write.demandstudios.com/upload//0000/300/00/6/60306.jpg",
+            "btnText":"Comprar"
+        }
+        
+ 
+    ]
+}
