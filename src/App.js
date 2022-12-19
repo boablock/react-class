@@ -1,90 +1,25 @@
-import logo from './logo.svg';
+
 import './App.css';
-import Navbar from './components/Navbar/Navbar'
-import Carousel from './components/Carousel/Carousel';
-import Card from './components/Card/Card';
-import Counter from './components/Counter/Counter';
-import { useState,useEffect } from 'react';
-import config from './config.json'
-import Spinner from './components/Spinner/Spinner';
+import { BrowserRouter as BrowserRouter, Routes, Route } from 'react-router-dom' //imrr -> importa todos los componenetes necesarios de react router dom. Agregar 'Routes'
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import Navbar from './components/Navbar/Navbar';
+import Cart from './components/Cart/Cart';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import Error404 from './components/404/Error404';
+import Checkout from './components/Checkout/Checkout';
 
 function App() {
-
-  const [cards,setCards] = useState([])
-
-  const [loading, setLoading] = useState(false)
-
-
-    //-----PROMISES STATES-------
-
-    // PENDING || PENDIENTE =>
-
-    // FULLFILLED => COMPLETADA || EXITOSO 
-
-    // REJECTED => RECHAZADA ! 
-
-      const getCards = ()=>{
-        setLoading(true);
-        const operation = new Promise ((resolve, reject)=>{
-          setTimeout(() => {
-            resolve({
-              status:200,
-              data:config.cards
-            })
-          }, 4000);
-          // reject('Something is wrong')
-        })
-      
-        operation.then((result) => { 
-          setCards(result.data) //--> una vez que se resualva la peticion, guardar la respuesta en el useState (setCards(result.data)) 
-          console.log(result);
-        })
-        .catch((err)=>{
-          console.log(err,'ERROR EN EL CATCH');
-          alert('something is wrong');
-        })
-        .finally(()=>{ //--> se ejecuta asi la respuesta sea resolve o reject; no importa como termine la promesa, se ejecuta lo que se                       acalare en el finally ( asi la respuesta sea resolve o reject). 
-          setLoading(false);
-        })
-      }
-
-      useEffect(() => {
-        getCards()
-      
-        return () => {
-          setCards()
-        }
-      }, [])
-      
   return (
-    <div className="App">
-    
-    {loading && <Spinner/>}  
-
-      <div className='d-flex justify-content-around'>
-      {!loading && cards.length > 0
-            ? cards.map(
-                (
-                  { titulo, descripcion, img, btnText, btnClassName },
-                  index
-                ) => (
-                  <Card
-                    key={index}
-                    titulo={titulo}
-                    descripcion={descripcion}
-                    img={img}
-                    btnText={btnText}
-                    btnClassName={btnClassName}
-                    // Fiufiu={Navbar}
-                  />
-                )
-              )
-            : !loading &&
-              cards.length < 1 && (
-                <h1 className="text-danger text-center">UPS FALLO LA CARGA</h1>
-              )}
-      </div>
-    </div>
+    <BrowserRouter>
+      <Navbar/>  
+      <Routes>
+        <Route path='/' element={<ItemListContainer/>} />
+        <Route path='/item/detail/:id' element={<ItemDetailContainer/>} />
+        <Route path='/cart' element={<Cart/>} />
+        <Route path='/checkout' element={<Checkout/>} />
+        <Route path='*' element={<Error404/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
