@@ -1,33 +1,19 @@
-import React from 'react'
-import './Navbar.css'
+import React,{useContext} from "react";
+import { CarritoContext } from "../Context/CarritoContext"; //-> todo lo que tiene export defaul, se importa sin llave. Lo que tiene solo export, se tiene que importar con llaves
+import "./Navbar.css";
+
 
 const Navbar = () => {
-  return (
-  <nav className="navbar-boxes navbar fondo_navbar navbar-expand-lg bg-light">
-    <div className=" navbar-boxes container-fluid">
-      <a className="navbar-brand" href="#">Navbar</a>
-      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className=" navbar-boxes collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-boxes navbar-nav">
-          <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Features</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Pricing</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link disabled">Disabled</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  )
-}
 
-export default Navbar
+  const {carrito} = useContext(CarritoContext); 
+  // const { carrito } = props; //--> no se recibe mas por props.
+  // carrito = array de productos 
+  return (
+    <nav className="navbar">
+      <h1>Carrito</h1>
+      <span>Inconito setCarrito {carrito.lenght}</span> 
+    </nav>
+  );
+};
+
+export default Navbar;

@@ -1,10 +1,4 @@
-.fondo_navbar{
-    background-color: yellow !important;
-}
 
 .navbar{
-    border: solid 1px grey;
-}
-.navbar-boxes{
-    border: solid 1px grey;
+    background-color: lightgray;
 }
